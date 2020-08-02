@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router"
+import { ActivatedRoute } from "@angular/router"
 import { HeroesService } from '../../services/heroes.service';
-
 
 @Component({
   selector: 'app-heroe',
@@ -12,12 +11,20 @@ export class HeroeComponent {
   heroe: any = {}
 
   constructor(private activatedRoute: ActivatedRoute
-    , private heroesService: HeroesService) 
+              , private heroesService: HeroesService) 
   {
     this.activatedRoute.params.subscribe( params => {
-      console.log('params',params['id'])
       this.heroe = heroesService.getHeroe(params['id'])
+      console.log('heroe', this.heroe)
     })
+  }
+
+  getImagenCasa(): string {
+    let res = "assets/img/marvel-logo.png"
+    if (this.heroe.casa === "DC") {
+      res = "assets/img/dc-logo.jpg"
+    }
+    return res
   }
 
 }
