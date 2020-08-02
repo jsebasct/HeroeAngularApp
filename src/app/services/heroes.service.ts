@@ -69,9 +69,14 @@ export class HeroesService {
     }
 
     buscarHeroes(termino: string): Heroe[] {
-      // let heroesArr = []
+      
+      let counter = 0
       console.log("buscando", termino)
-      let heroesArr = this.heroes.filter(heroe => heroe.nombre.toLowerCase().includes(termino))
+
+      let heroesArr = this.heroes.filter(heroe => {
+        heroe.idx = counter++
+        return heroe.nombre.toLowerCase().includes(termino)
+      })
 
       console.log(heroesArr)
       return heroesArr
@@ -81,6 +86,7 @@ export class HeroesService {
 
 
 export interface Heroe {
+    idx?: number
     nombre: string
     bio: string
     img: string
