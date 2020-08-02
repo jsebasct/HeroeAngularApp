@@ -61,7 +61,12 @@ export class HeroesService {
 
     getHeroes() {
         return this.heroes;
-      }
+    }
+
+    getHeroe(index: number): Heroe {
+      //TODO add index validation bundaries
+      return this.heroes[index];
+  }
 }
 
 
