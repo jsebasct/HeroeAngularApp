@@ -66,7 +66,16 @@ export class HeroesService {
     getHeroe(index: number): Heroe {
       //TODO add index validation bundaries
       return this.heroes[index];
-  }
+    }
+
+    buscarHeroes(termino: string): Heroe[] {
+      // let heroesArr = []
+      console.log("buscando", termino)
+      let heroesArr = this.heroes.filter(heroe => heroe.nombre.toLowerCase().includes(termino))
+
+      console.log(heroesArr)
+      return heroesArr
+    }
 }
 
 
