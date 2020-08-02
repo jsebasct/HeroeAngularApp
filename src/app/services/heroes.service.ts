@@ -75,7 +75,7 @@ export class HeroesService {
 
       let heroesArr = this.heroes.filter(heroe => {
         heroe.idx = counter++
-        return heroe.nombre.toLowerCase().includes(termino)
+        return heroe.nombre.toLowerCase().includes(termino.toLowerCase())
       })
 
       console.log(heroesArr)
