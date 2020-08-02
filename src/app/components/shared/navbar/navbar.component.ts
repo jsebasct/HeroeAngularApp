@@ -19,9 +19,10 @@ export class NavbarComponent implements OnInit {
   }
 
   buscarHeroe(termino: string) {
-    console.log(termino)
+    console.log('navBar',termino)
     // this.heroesService.buscarHeroes(termino)
     this.router.navigate(['/filtrado', termino])
+    // return false;
   }
 
 }
